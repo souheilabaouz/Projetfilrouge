@@ -243,69 +243,69 @@
 
 
 
-function calculatePriceTTC(priceHT) {
-    const TVA = 0.2;
-    let priceTTC = priceHT + (priceHT * TVA);
-    console.log("Le prix TTC est de: "+priceTTC);
-    return priceTTC
-}
-function formatPrice(price) {
-    let rounded = price.toFixed(2);
-    let formatted = rounded.replace(".", ",") + "€";
-    return formatted;
-}
+// function calculatePriceTTC(priceHT) {
+//   const TVA = 0.2;
+//   let priceTTC = priceHT + (priceHT * TVA);
+//   console.log("Le prix TTC est de: " + priceTTC);
+//   return priceTTC
+// }
+// function formatPrice(price) {
+//   let rounded = price.toFixed(2);
+//   let formatted = rounded.replace(".", ",") + "€";
+//   return formatted;
+// }
 
 
 
-// - Créer des variables pour :
-//   nom du produit (featuredProductName), prix HT (featuredProductPriceHT), description (featuredProductDescription), image (featuredProductImage)
-let featuredProductName = "couette";
-let featuredProductPriceHT = 25;
-let featuredProductDescription = "Cette couette avec une qualité supérieur";
-let featuredProductImage = "https://images.pexels.com/photos/34989773/pexels-photo-34989773.jpeg"
+// // - Créer des variables pour :
+// //   nom du produit (featuredProductName), prix HT (featuredProductPriceHT), description (featuredProductDescription), image (featuredProductImage)
+// let featuredProductName = "couette";
+// let featuredProductPriceHT = 25;
+// let featuredProductDescription = "Cette couette avec une qualité supérieur";
+// let featuredProductImage = "https://images.pexels.com/photos/34989773/pexels-photo-34989773.jpeg"
 
 
 
-// - Récupérer la section HTML où afficher le produit
-//   (indice : utilisez une méthode du DOM qui sélectionne un élément par son id)
+// // - Récupérer la section HTML où afficher le produit
+// //   (indice : utilisez une méthode du DOM qui sélectionne un élément par son id)
 
 
-// product- list ets dans html 
-const productList = document.getElementById("product-list"); 
+// product- list ets dans html PAS OUBLIER
+const productList = document.getElementById("product-list");
 // - Définir une fonction (createFeaturedProductCard()) qui :
 function createFeaturedProductCard() {
 
-let article = document.createElement("article");
+  let article = document.createElement("article");
 
-let image = document.createElement("img");
-image.src = featuredProductImage;
-
-
-let title = document.createElement("h3");
-title.textContent = featuredProductName;
+  let image = document.createElement("img");
+  image.src = featuredProductImage;
 
 
-let priceTTC = calculatePriceTTC(featuredProductPriceHT);
-let formmattedPrice = formatPrice(priceTTC);
-let price = document.createElement("p");
-price.textContent = formmattedPrice;
+  let title = document.createElement("h3");
+  title.textContent = featuredProductName;
 
 
-let desc = document.createElement("p");
-desc.textContent = featuredProductDescription; 
+  let priceTTC = calculatePriceTTC(featuredProductPriceHT);
+  let formmattedPrice = formatPrice(priceTTC);
+  let price = document.createElement("p");
+  price.textContent = formmattedPrice;
 
-// productlist car mon article dans se trouvera dans productlist dans html
-productList.appendChild(article);
-article.appendChild(image);
-article.appendChild(title);
-article.appendChild(desc);
-article.appendChild(price);
 
-return article
+  let desc = document.createElement("p");
+  desc.textContent = featuredProductDescription;
 
-}
+//   // productlist car mon article dans se trouvera dans productlist dans html
+//   productList.appendChild(article);
+//   article.appendChild(image);
+//   article.appendChild(title);
+//   article.appendChild(desc);
+//   article.appendChild(price);
 
-createFeaturedProductCard();
+//   return article
+
+// }
+
+// createFeaturedProductCard();
 // affichage du produit vedette dans la page
 // productList.innerHTML= "";
 
@@ -317,13 +317,13 @@ createFeaturedProductCard();
 
 //       (indice : pensez aux propriétés des balises <img>)
 //     • crée un titre et lui mettre le nom du produit  
- title = document.createElement("h3");
-title.textcontent = createFeaturedProductCard;
+// title = document.createElement("h3");
+// title.textcontent = createFeaturedProductCard;
 //       (indice : une propriété permet d’écrire du texte dans un élément)
 //     • calcule le prix TTC en utilisant la fonction vue dans l’exercice précédent
 //       (indice : vous avez déjà une fonction qui fait un calcul à partir du prix HT)
 
-    
+
 
 
 //     • crée un paragraphe pour afficher le prix TTC
@@ -347,38 +347,38 @@ title.textcontent = createFeaturedProductCard;
 
 
 
-// - créer tableau (productNames)
-let productNames = ["table", "chaussure", "pantalon"];
-console.log(productNames);
+// // - créer tableau (productNames)
+// let productNames = ["table", "chaussure", "pantalon"];
+// console.log(productNames);
 
 
-// - créer tableau (productPricesHT)
-let productPricesHT = [30, 20, 20];
-console.log(productPricesHT);
+// // - créer tableau (productPricesHT)
+// let productPricesHT = [30, 20, 20];
+// console.log(productPricesHT);
 
 
-// - afficher dans la console la longueur du tableau (le nombre d'éléments à l'intérieur)
+// // - afficher dans la console la longueur du tableau (le nombre d'éléments à l'intérieur)
 
-console.log(productNames.length);
-console.log(productPricesHT.length);
+// console.log(productNames.length);
+// console.log(productPricesHT.length);
 
 
-// - définir fonction (afficherProduitsConsole()):
+// // - définir fonction (afficherProduitsConsole()):
 
-    function displayProductsInConsole() {
-  productNames.forEach((element, index) => {
-    
-    const priceHT = productPricesHT[index];
-    const priceTTC = calculatePriceTTC(priceHT);
-    // - formatter prix (avec une fonction créée plus tôt dans nos exercices)
-    const formattedPrice = formatPrice(priceTTC);
-    //  - afficher dans la console la phrase : "Produit : Nom — Prix : XX,XX €"
- 
-   console.log(` produit : ${index+1} - nom: ${element} - Prix: ${formattedPrice} TTC` );
-   
-  });
-}
-displayProductsInConsole();
+// function displayProductsInConsole() {
+//   productNames.forEach((element, index) => {
+
+//     const priceHT = productPricesHT[index];
+//     const priceTTC = calculatePriceTTC(priceHT);
+//     // - formatter prix (avec une fonction créée plus tôt dans nos exercices)
+//     const formattedPrice = formatPrice(priceTTC);
+//     //  - afficher dans la console la phrase : "Produit : Nom — Prix : XX,XX €"
+
+//     console.log(` produit : ${index + 1} - nom: ${element} - Prix: ${formattedPrice} TTC`);
+
+//   });
+// }
+// displayProductsInConsole();
 
 //     (indice : il faudra récupérer l'index de chaque nom en plus. Donc on doit récupérer 2 informations.)
 //       - récupérer prix HT via `prixHT[index]`
@@ -389,4 +389,125 @@ displayProductsInConsole();
 //       - afficher dans la console la phrase : "Produit : Nom — Prix : XX,XX €"
 // - appeler la fonction
 
-   
+
+
+
+
+
+
+
+
+//    - Créer un tableau contenant plusieurs produits
+// let product = [
+//   {
+//     id: 5,
+//     productName: " ballon",
+//     priceHT: 20,
+//     description: "Le meilleur ballon du monde",
+//     image: "https://images.pexels.com/photos/34341418/pexels-photo-34341418.jpeg",
+//   },
+//   {
+//     id: 5,
+//     productName: " ballon",
+//     priceHT: 20,
+//     description: "Le meilleur ballon du monde",
+//     image: "https://images.pexels.com/photos/34341418/pexels-photo-34341418.jpeg",
+//   }
+// ]
+
+
+const products = [
+  {
+    id: 1,
+    name: "T-shirt JS",
+    priceHT: 19.99,
+    description: "T-shirt confortable pour développeurs JavaScript.",
+    image: "https://images.unsplash.com/photo-1561347981-969c80cf4463?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    id: 2,
+    name: "Mug Debug",
+    priceHT: 9.99,
+    description: "Mug pour déboguer avec du café ☕.",
+    image: "https://images.unsplash.com/photo-1639755507638-e34150b56db2?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    id: 3,
+    name: "Sticker Bug Free",
+    priceHT: 2.5,
+    description: "Un sticker pour célébrer les bugs corrigés.",
+    image: "https://images.unsplash.com/photo-1662389943678-df7f58b730e8?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  }
+];
+
+// - Récupérer la zone du DOM où tous les produits doivent être affichés
+
+// - Adapter ou créer une fonction qui :
+//  reçoit un produit en paramètre
+
+  // crée un conteneur pour la carte
+  
+
+  // productlist car mon article dans se trouvera dans productlist dans html
+const productListSection = document.getElementById("product-list");
+
+function createProductCard(product) {
+  const article = document.createElement("article");
+  article.classList.add("product-card");
+
+  const img = document.createElement("img");
+  img.src = product.image;
+  img.alt = product.name;
+  img.classList.add("product-image");
+
+  const title = document.createElement("h3");
+  title.textContent = product.name;
+  title.classList.add("product-title");
+
+  const priceElt = document.createElement("p");
+  const priceTTC = calculatePriceTTC(product.priceHT);
+  priceElt.textContent = formatPrice(priceTTC);
+  priceElt.classList.add("product-price");
+
+  const desc = document.createElement("p");
+  desc.textContent = product.description;
+  desc.classList.add("product-description");
+  
+ article.appendChild(img);
+  article.appendChild(title);
+  article.appendChild(priceElt);
+  article.appendChild(desc);
+
+  return article;
+}
+
+function displayProductsInPage() {
+  
+
+  productListSection.innerHTML = "";
+
+  for (const product of products) {
+    const card = createProductCard(product);
+    productListSection.appendChild(card);
+  }
+}
+
+displayProductsInPage();
+
+
+
+
+
+
+//     • crée les éléments nécessaires (image, nom, prix TTC, description)
+//     • utilise les propriétés du produit pour remplir ces éléments
+//     • réutilise les fonctions de calcul et de formatage de prix
+//     • renvoie la carte complète
+
+// - Créer une fonction qui :
+//     • vide le contenu de la zone d’affichage des produits
+//     • parcourt le tableau de produits
+//     • pour chaque produit :
+//         - crée une carte à partir de ce produit
+//         - ajoute cette carte dans la zone d’affichage
+
